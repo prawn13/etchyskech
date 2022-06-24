@@ -1,0 +1,39 @@
+body    {
+    background-color: rgb(116, 97, 210);
+}
+
+.container  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+    width: 50vh;
+    height: 50vh;
+}
+
+.column {
+    background-color: rgb(241, 118, 118);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.square {
+    height: 2vh;
+    width: 2vh;
+    flex: 1 1 40;
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(241, 118, 118);
+    border-width: 1px;
+}
+
+.drawing    {
+    background-color: black;
+}
+
+button {
+    border-radius: 20px;
+    background-color: rgba(73, 210, 71, 0.662);
+}
