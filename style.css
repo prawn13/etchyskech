@@ -1,32 +1,36 @@
 body    {
     background-color: rgb(116, 97, 210);
+    display: flex;
+    padding: 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
 }
 
 .container  {
+    flex: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 100px;
-    width: 50vh;
-    height: 50vh;
+    min-width: 800px;
+    min-height: 800px;
+    max-width: 800px;
+    max-height: 800px;
 }
 
 .column {
     background-color: rgb(241, 118, 118);
+    height: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .square {
-    height: 2vh;
-    width: 2vh;
-    flex: 1 1 40;
     background-color: white;
-    border-style: solid;
-    border-color: rgb(241, 118, 118);
-    border-width: 1px;
+    padding = 1px;
+    box-shadow: inset 0 0 0 0.5px rgb(177, 177, 177);
 }
 
 .drawing    {
@@ -36,4 +40,6 @@ body    {
 button {
     border-radius: 20px;
     background-color: rgba(73, 210, 71, 0.662);
+    height: 80px;
+    width: 200px;
 }

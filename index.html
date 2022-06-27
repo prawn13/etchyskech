@@ -19,12 +19,15 @@
             container.innerHTML = '<div></div>';
             for (let i = 0; i < rows; i++)    {
                 const col = document.createElement('div');
-                col.classList.add('column')
+                col.classList.add('column');
+                col.style.width = container.width / rows + 'px';
                 
                 for (let l = 0; l < rows; l++) {
                     const div = document.createElement('div');
                     div.addEventListener('mouseover', function() {draw(div)});
                     div.classList.add('square');
+                    div.style.height = 800 / rows + 'px';
+                    div.style.width = div.style.height;
                     col.appendChild(div);
                 }
 
