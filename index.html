@@ -8,12 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick=setSize()>how many squares???(<100)</button>
-    <div class="container"></div>
+    <div class="title">welcome to: etch A sketch</div>
+    <div class="outer">
+        <div class="controls">
+            <button class="set-size" onclick=setSize()>how many squares???(<100)</button>
+            <button onclick=blackMode()>mode: black n white : )</button>
+            <button onclick=tripMode()>mode: tripppeee >:|</button>
+            <button onclick=greyMode()>mode: gettin darkr !_!</button>
+        </div>
+        <div class="container"></div>
+    </div>      
 
     <script>
         const container = document.querySelector('.container');
         drawGrid();
+        let drag = false;
+        let mode = 'black';
+
+
+        function blackMode()    {
+            mode = 'black';
+        }
+        
+        function tripMode() {
+            mode = 'trip';
+        }
+
+        function greyMode() {
+            mode = 'grey';
+        }
 
         function drawGrid(rows = 16)    {
             container.innerHTML = '<div></div>';
@@ -24,7 +47,16 @@
                 
                 for (let l = 0; l < rows; l++) {
                     const div = document.createElement('div');
-                    div.addEventListener('mouseover', function() {draw(div)});
+
+                    div.addEventListener('mousedown', function() {
+                        drag = true;
+                        draw(div)});
+                    div.addEventListener('mousemove', function()    {
+                        drag ? draw(div) : null;
+                    });
+                    div.addEventListener('mouseup', function() {
+                        drag = false;});
+
                     div.classList.add('square');
                     div.style.height = 800 / rows + 'px';
                     div.style.width = div.style.height;
@@ -35,14 +67,31 @@
             }
         }
 
-        function draw(sq) {
-            sq.classList.add('drawing');
+        function draw(sq) {            
+            if (mode == 'black')    {
+                sq.style.backgroundColor = 'black';
+                // sq.className = 'square drawing';
+            }
+            else if (mode == 'trip') {
+                // sq.className = 'square drawing-trippy';
+                sq.style.backgroundColor = getRandomColor();
+            }
+            else    {
+                
+            }
+        }
+
+        function getRandomColor()   {
+            return '#' + Math.floor(Math.random()*16777215).toString(16);
         }
 
         function setSize()  {
             let rows = 0;
             while (rows < 1 || rows > 100) {
                 rows = prompt('how many squares??? (<= 100)')
+                if (rows == null)   {
+                    return;
+                }
             }
             drawGrid(rows);
         }

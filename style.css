@@ -1,10 +1,29 @@
 body    {
-    background-color: rgb(116, 97, 210);
     display: flex;
-    padding: 100px;
+    flex-direction: column;
+    background-color: rgb(116, 97, 210);
+}
+
+.outer  {
+    display: flex;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     gap: 100px;
+}
+
+.controls   {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title  {
+    font-size: 90px;
+    text-align: center;
+    text-shadow: 4px 3px rgb(36, 93, 17);
+    color:rgb(16, 191, 133);
+    background-color: rgb(22, 22, 102);
 }
 
 .container  {
@@ -16,6 +35,7 @@ body    {
     min-height: 800px;
     max-width: 800px;
     max-height: 800px;
+    box-shadow: -15px 15px 40px 15px rgb(174, 54, 54);
 }
 
 .column {
@@ -29,17 +49,22 @@ body    {
 
 .square {
     background-color: white;
-    padding = 1px;
     box-shadow: inset 0 0 0 0.5px rgb(177, 177, 177);
 }
 
-.drawing    {
+/* .drawing    {
     background-color: black;
 }
 
+.drawing-trippy    {
+    background-color: rgba(255, 255, 255, 0);
+} */
+
 button {
     border-radius: 20px;
-    background-color: rgba(73, 210, 71, 0.662);
-    height: 80px;
-    width: 200px;
+    background-color: rgba(77, 241, 74, 0.662);
+    padding: 20px;
+    font-size: 20px;
+    color:rgb(111, 37, 0);
+    text-shadow: 1px 1px 15px rgb(128, 71, 227) ;
 }
