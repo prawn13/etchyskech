@@ -25,6 +25,9 @@
         let drag = false;
         let mode = 'black';
 
+        const shades = ['rgb(231, 231, 231)', 'rgb(204, 204, 204)', 'rgb(179, 179, 179)', 'rgb(153, 153, 153)', 
+            'rgb(127, 127, 127)', 'rgb(102, 102, 102)', 'rgb(77, 77, 77)', 'rgb(51, 51, 51)', 'rgb(26, 26, 26)', 'rgb(0, 0, 0)'];
+
 
         function blackMode()    {
             mode = 'black';
@@ -67,17 +70,23 @@
             }
         }
 
-        function draw(sq) {            
+        function draw(sq) {          
             if (mode == 'black')    {
                 sq.style.backgroundColor = 'black';
-                // sq.className = 'square drawing';
             }
             else if (mode == 'trip') {
-                // sq.className = 'square drawing-trippy';
-                sq.style.backgroundColor = getRandomColor();
+                if (!sq.style.backgroundColor)    {
+                  sq.style.backgroundColor = getRandomColor();
+                }
             }
             else    {
-                
+                if (!sq.style.backgroundColor)    {
+                  sq.style.backgroundColor = shades[0];
+                }
+                else{
+                    console.log(sq.style.backgroundColor);
+                    sq.style.backgroundColor = shades[shades.indexOf(sq.style.backgroundColor) + 1];
+                }
             }
         }
 
